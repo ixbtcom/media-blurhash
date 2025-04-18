@@ -9,7 +9,7 @@ return [
      * S3, the model may be created before the file is available; in which case you'll need
      * to fire the job yourself.
      */
-    'run_on_created' => true,
+    'run_on_created' => false,
 
     /**
      * List of mime types that represent *supported* images
