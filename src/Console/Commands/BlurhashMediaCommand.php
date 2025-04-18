@@ -7,7 +7,7 @@ use Illuminate\Console\Command;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Lukaswhite\MediaBlurhash\BlurhashMedia;
 use Lukaswhite\MediaBlurhash\Utils\Dispatcher;
-use Spatie\MediaLibrary\MediaCollections\Models\Media;
+use Ixbtcom\Common\Models\Media;
 
 class BlurhashMediaCommand extends Command
 {
