@@ -12,6 +12,7 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Intervention\Image\ImageManager;
 use Ixbtcom\Common\Models\Media;
+use Intervention\Image\Drivers\Gd\Driver;
 
 /**
  * Class BlurhashMedia
@@ -40,7 +41,7 @@ class BlurhashMedia implements ShouldQueue
      */
     public function handle(): void
     {
-        $image = (new ImageManager())->make($this->media->getFullUrl());
+        $image = (new ImageManager(new Driver()))->make($this->media->getFullUrl());
 
         if($this->media->width ?? null)
             $this->media->width = $image->width();
