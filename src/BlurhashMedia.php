@@ -51,6 +51,6 @@ class BlurhashMedia implements ShouldQueue
 
         $upd = array_filter($upd);
         if(!empty($upd))
-            $this->media->update($upd);
+            $this->media->forceFill($upd);
     }
 }
