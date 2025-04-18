@@ -3,7 +3,7 @@
 
 namespace Lukaswhite\MediaBlurhash\Utils;
 
-use Spatie\MediaLibrary\MediaCollections\Models\Media;
+use Ixbtcom\Common\Models\Media;
 
 /**
  * Class ImageChecker
