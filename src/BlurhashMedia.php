@@ -41,7 +41,10 @@ class BlurhashMedia implements ShouldQueue
      */
     public function handle(): void
     {
-        $image = (new ImageManager(new Driver()))->make($this->media->getFullUrl());
+        $manager = new ImageManager(new Driver());
+
+
+        $image = $manager->read($this->media->getFullUrl());
 
         if($this->media->width ?? null)
             $this->media->width = $image->width();
