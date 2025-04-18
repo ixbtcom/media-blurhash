@@ -34,7 +34,7 @@ class BlurhashMediaCommand extends Command
     {
         $media = Media::query()
             ->whereIn('mime_type', config('media-blurhash.image_mime_types'))
-            ->whereNull('blurhash')
+            ->where(fn($query) => $query->whereNull('width')->orWhereNull('height')->orWhereNull('blurhash'))
             ->get();
 
         $media->each(function (Media $media){
