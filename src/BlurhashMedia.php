@@ -11,7 +11,7 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Intervention\Image\ImageManager;
-use Spatie\MediaLibrary\MediaCollections\Models\Media;
+use Ixbtcom\Common\Models\Media;
 
 /**
  * Class BlurhashMedia
@@ -41,16 +41,14 @@ class BlurhashMedia implements ShouldQueue
     public function handle(): void
     {
         $image = (new ImageManager())->make($this->media->getFullUrl());
-        $upd = [];
-        if($this->media->width ?? null)
-            $upd['width'] = $image->width();
-        if($this->media->height ?? null)
-            $upd['height'] = $image->height();
-        if($this->media->blurhash ?? null)
-            $upd['blurhash'] = BlurHash::encode($image);
 
-        $upd = array_filter($upd);
-        if(!empty($upd))
-            $this->media->forceFill($upd);
+        if($this->media->width ?? null)
+            $this->media->width = $image->width();
+        if($this->media->height ?? null)
+            $this->media->height = $image->height();
+        if($this->media->blurhash ?? null)
+            $this->media->blurhash = BlurHash::encode($image);
+        
+        $this->media->save();
     }
 }
