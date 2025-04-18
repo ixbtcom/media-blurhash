@@ -40,7 +40,15 @@ class BlurhashMedia implements ShouldQueue
      */
     public function handle(): void
     {
-        $hash = BlurHash::encode((new ImageManager())->make($this->media->getUrl()));
-        $this->media->update(['blurhash' => $hash]);
+        $image = (new ImageManager())->make($this->media->getFullUrl());
+        
+        $width = $image->width();
+        $height = $image->height();
+        
+        $hash = BlurHash::encode($image);
+
+        $upd = array_filter(['blurhash' => $hash, 'width' => $width, 'height' => $height]);
+        if(!empty($upd))
+            $this->media->update($upd);
     }
 }
