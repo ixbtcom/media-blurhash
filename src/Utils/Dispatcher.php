@@ -4,7 +4,7 @@
 namespace Lukaswhite\MediaBlurhash\Utils;
 
 use Lukaswhite\MediaBlurhash\BlurhashMedia;
-use Spatie\MediaLibrary\MediaCollections\Models\Media;
+use Ixbtcom\Common\Models\Media;
 
 /**
  * Class Dispatcher

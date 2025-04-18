@@ -57,7 +57,7 @@ If you'd prefer to run the hashing process manually, you can either dispatch the
 ```php
 use Lukaswhite\MediaBlurhash\BlurhashMedia;
 
-/** @var \Spatie\MediaLibrary\MediaCollections\Models\Media $media */
+/** @var \Ixbtcom\Common\Models\Media $media */
 BlurhashMedia::dispatch($this->media);
 ``` 
 
@@ -66,7 +66,7 @@ Or, to use the package configuration's queue connection and/or name:
 ```php
 use Lukaswhite\MediaBlurhash\Utils\Dispatcher;
 
-/** @var \Spatie\MediaLibrary\MediaCollections\Models\Media $media */
+/** @var \Ixbtcom\Common\Models\Media $media */
 (new Dispatcher($media))->run();
 ```
 
