@@ -17,6 +17,8 @@ return [
     'image_mime_types' => [
         'image/jpeg',
         'image/png',
+        'image/webp',
+        'image/avif'
     ],
 
     'queue' => [
