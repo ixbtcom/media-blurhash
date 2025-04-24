@@ -24,17 +24,13 @@ class BlurhashMedia implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    /**
-     * @var Media
-     */
+
     protected $media;
 
-    /**
-     * BlurhashMedia constructor.
-     * @param Media $media
-     */
-    public function __construct(Media $media)
+
+    public function __construct($media)
     {
+
         $this->media = $media;
     }
 
@@ -58,7 +54,7 @@ class BlurhashMedia implements ShouldQueue
     }
 
     /** Вернёт путь к локальному файлу (может быть tmp) */
-    private function localPath(Media $media): string
+    private function localPath($media): string
     {
         // Драйвер диска
         if ($media->getDiskDriverName() === 'local') {

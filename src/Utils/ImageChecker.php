@@ -14,16 +14,11 @@ use Ixbtcom\Common\Models\Media;
  */
 class ImageChecker
 {
-    /**
-     * @var Media
-     */
+
     protected $media;
 
-    /**
-     * ImageChecker constructor.
-     * @param Media $media
-     */
-    public function __construct(Media $media)
+
+    public function __construct($media)
     {
         $this->media = $media;
     }
